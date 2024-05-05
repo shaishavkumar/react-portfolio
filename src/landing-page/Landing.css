@@ -1,0 +1,65 @@
+.landing_main {
+    display: flex;
+    height: 100vh; 
+}
+
+.landing_side-nav {
+    width: 20%; 
+    background-color: #e0e0e0; 
+}
+
+.landing_content {
+    position: relative;
+    flex: 1; /* Take up remaining space */
+    background-color: #f0f0f0;
+}
+
+.landing_nav-btns{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    /* margin-top: 50px; */
+}
+
+.landing_nav-card{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    padding: 10px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 0;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #f0f0f0;
+}
+
+.landing_nav-card:hover{
+    background-color: #2ea44f;
+    color: #f0f0f0;
+}
+
+.landing_logo{
+   font-size: xx-large;
+   font-weight: bold;
+   text-align: center;
+}
+
+.landing_highlight{
+    color: #2ea44f;
+}
+
+.landing_copyrigt {
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    font-size: small;
+    transform: translateX(-50%);
+}
+
+.active{
+   outline: #2ea44f 2px solid;
+   color: #2ea44f;
+}

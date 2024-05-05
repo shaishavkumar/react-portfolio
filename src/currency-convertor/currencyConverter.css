@@ -1,0 +1,71 @@
+input[type=number] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 250px;
+  }
+  
+  /* Style the number arrows */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Firefox - hide the number arrows */
+  input[type=number]::-moz-number-spin-box {
+    display: none;
+  }
+  
+  /* Focus style */
+  input[type=number]:focus {
+    border-color: #2ea44f;
+  }
+  
+  .input-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  select {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: white; /* Ensure the background is white */
+    appearance: none; /* Remove default arrow icon */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="-10 -5 34 34" stroke="currentColor" style="width: 14px; height: 14px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Adjust image size */
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    /* padding-right: 30px; Adjust padding to accommodate the arrow */
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Focus style */
+  select:focus {
+    border-color: #2ea44f;
+  }
+  
+  .result-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .hrline{
+    margin: 10px 0px;
+    /* border-color: #2ea44f; */
+  }

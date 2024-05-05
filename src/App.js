@@ -1,24 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import BgMain from './bg-changer/bg-changer';
+import PassswordGenerator from './password/password';
+import CurrencyConvertor from './currency-convertor/CurrencyConvertor';
+import Landing from './landing-page/Landing';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  // <BgMain/>
+  // <PassswordGenerator/>
+  // <CurrencyConvertor/>
+  <Landing/>
   );
 }
 
