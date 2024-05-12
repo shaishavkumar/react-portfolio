@@ -6,7 +6,7 @@ function CurrencyConvertor() {
     const [from, setFrom] = useState('usd');
     const [to, setTo] = useState('inr');
     const [data, setData] = useCurrencyInfo(from);
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState();
     const [convertedAmount, setConvertedAmount] = useState(0);
     let currencyOptions = Object.keys(data);
     useEffect(() => {
