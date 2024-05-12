@@ -1,31 +1,58 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTodo } from "../contexts/TodoContext";
 import { ToastContainer, toast } from 'react-toastify';
 
 function TodoList() {
-    const { todos, deleteTodo, updateStatus } = useTodo();
+    const { todos, deleteTodo, updateStatus, editTodo } = useTodo();
+    const [editableId, setEditableId] = useState(null); // Track the ID of the currently editable todo
+    const [editValue, setEditValue] = useState("");
+
     function deleteTodoFunc(id) {
         deleteTodo(id);
     }
 
-    function editStatus(id, status){
-        console.log(id, status);
+    function editStatus(id, status) {
         updateStatus(id, status);
     }
 
-    useEffect(() =>{
-       console.log(todos);
-    },[todos])
+    function makeEditable(id, todo) {
+        setEditableId(id);
+        setEditValue(todo);
+    }
+
+    function handleEditChange(e) {
+        setEditValue(e.target.value);
+    }
+
+    function handleEditSave(id) {
+        editTodo(id,editValue);
+        setEditableId('');
+        setEditValue('');
+    }
+
     return (
         <>
             <div className="todo_list-section">
-                {!todos.length ? (<div className="todo_no-data">You are all catchup!</div>) : (
+                {!todos.length ? (
+                    <div className="todo_no-data">You are all caught up!</div>
+                ) : (
                     todos.map(todo => (
                         <div className={`todo_list-card ${todo.completedStatus ? 'completed' : ''}`} key={todo.id}>
-                            <div className="todo_inner"><input type="checkbox" onChange={(e) => editStatus(todo.id, e.target.checked)} />&nbsp;<span className= {`${todo.completedStatus ? 'strike' : ''}`}>{todo.todo}</span></div>
+                            {editableId === todo.id ? (
+                                <input type="text" className="edit-input" value={editValue} onChange={handleEditChange} />
+                            ) : (
+                                <div className="todo_inner">
+                                    <input type="checkbox" onChange={(e) => editStatus(todo.id, e.target.checked)} />&nbsp;
+                                    <span className={`todo-text ${todo.completedStatus ? 'strike' : ''}`}>{todo.todo}</span>
+                                </div>
+                            )}
                             <div className="todo_action-section">
-                                {/* <span class="material-symbols-outlined edit" title="Edit">edit</span> */}
-                                <span onClick={() => deleteTodoFunc(todo.id)} class="material-symbols-outlined delete" title="Delete">delete</span>
+                                {editableId === todo.id ? (
+                                    <span className="material-symbols-outlined save" title="Update" onClick={() => handleEditSave(todo.id)}>save</span>
+                                ) : (
+                                    <span className="material-symbols-outlined edit" title="Edit" onClick={() => makeEditable(todo.id, todo.todo)}>edit</span>
+                                )}
+                                <span onClick={() => deleteTodoFunc(todo.id)} className="material-symbols-outlined delete" title="Delete">delete</span>
                             </div>
                         </div>
                     ))

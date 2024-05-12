@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 function Todo() {
     const [todos, setTodos] = useState([]);
-    
+
     const addTodo = (todo) => {
         let todoData = {
             id: Date.now(),
@@ -23,19 +23,32 @@ function Todo() {
         toast.success('Todo deleted successfully!');
     }
 
-        const updateStatus = (id, status) => {
-            setTodos((prevVal) => 
-                prevVal.map(item => {
-                    if(item.id === id) {
-                        return { ...item, completedStatus: status };
-                    } else {
-                        return item;
-                    }
-                })
-            );
-        };
+    const updateStatus = (id, status) => {
+        setTodos((prevVal) =>
+            prevVal.map(item => {
+                if (item.id === id) {
+                    return { ...item, completedStatus: status };
+                } else {
+                    return item;
+                }
+            })
+        );
+    };
+
+    const editTodo = (id, todo) => {
+        setTodos((prevVal) => {
+            return prevVal.map(item => {
+                if(item.id === id){
+                    return {...item, todo: todo }
+                }else{
+                    return item;
+                }
+            })
+        })
+        toast.success('Todo updated successfully!');
+    }
     return (
-        <TodoProvider value={{todos, addTodo, deleteTodo, updateStatus}}>
+        <TodoProvider value={{ todos, addTodo, deleteTodo, updateStatus, editTodo }}>
             <CreateForm />
             <TodoList />
             <ToastContainer position="bottom-right" autoClose={2000} />

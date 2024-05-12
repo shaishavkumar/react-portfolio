@@ -60,3 +60,20 @@
 .delete {
     color: red;
 }
+
+.todo-text{
+    width: 800px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.save{
+    color: green;
+}
+
+.edit-input{
+    width: 100%;
+    padding: none !important;
+    margin: 0 !important;
+}

@@ -6,6 +6,10 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-.custom{
+.custom {
     margin-left: 20%;
+}
+
+input:focus {
+    outline: none;
 }

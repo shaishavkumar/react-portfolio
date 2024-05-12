@@ -8,6 +8,7 @@ function CreateForm() {
     function add(e) {
        e.preventDefault();
        addTodo(todo);
+       setTodo("");
     }
     return (
         <>
@@ -16,7 +17,7 @@ function CreateForm() {
                     <h1 className="header">Todo List</h1>
                     <hr className='hrline'></hr>
                     <div className="flex">
-                        <input className="input-field" type="text" value={todo} onChange={(e) => setTodo(e.target.value)}/>
+                        <input className="input-field normal-input" type="text" value={todo} onChange={(e) => setTodo(e.target.value)}/>
                         <button className="button-3" onClick={add}>Add</button>
                     </div>
                 </div>

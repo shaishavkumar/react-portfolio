@@ -38,7 +38,7 @@ function PassswordGenerator() {
                 <h1 className="header">Password Generator</h1>
                 <hr className='hrline'></hr>
                 <div className="flex">
-                    <input className="input-field" type="text" readOnly value={password} />
+                    <input className="input-field normal-input" type="text" readOnly value={password} />
                     <button className="button-3" onClick={copyPassword}>Copy</button>
                 </div>
                 <div className="selection-div">
