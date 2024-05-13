@@ -15,9 +15,13 @@ function TodoList() {
         updateStatus(id, status);
     }
 
-    function makeEditable(id, todo) {
-        setEditableId(id);
-        setEditValue(todo);
+    function makeEditable(todo) {
+        if(todo.completedStatus){
+            toast.warn('Edit is not allowed!')
+            return;
+        }
+        setEditableId(todo.id);
+        setEditValue(todo.todo);
     }
 
     function handleEditChange(e) {
@@ -25,6 +29,10 @@ function TodoList() {
     }
 
     function handleEditSave(id) {
+        if(!editValue){
+            toast.warn('Input can not be empty!');
+            return;
+        }
         editTodo(id,editValue);
         setEditableId('');
         setEditValue('');
@@ -50,7 +58,7 @@ function TodoList() {
                                 {editableId === todo.id ? (
                                     <span className="material-symbols-outlined save" title="Update" onClick={() => handleEditSave(todo.id)}>save</span>
                                 ) : (
-                                    <span className="material-symbols-outlined edit" title="Edit" onClick={() => makeEditable(todo.id, todo.todo)}>edit</span>
+                                    <span className="material-symbols-outlined edit" title="Edit" onClick={() => makeEditable(todo)}>edit</span>
                                 )}
                                 <span onClick={() => deleteTodoFunc(todo.id)} className="material-symbols-outlined delete" title="Delete">delete</span>
                             </div>
@@ -58,6 +66,7 @@ function TodoList() {
                     ))
                 )}
             </div>
+            <ToastContainer position="bottom-right" autoClose={2000} />
         </>
     )
 }

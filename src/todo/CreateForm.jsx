@@ -18,7 +18,7 @@ function CreateForm() {
                     <hr className='hrline'></hr>
                     <div className="flex">
                         <input className="input-field normal-input" type="text" value={todo} onChange={(e) => setTodo(e.target.value)}/>
-                        <button className="button-3" onClick={add}>Add</button>
+                        <button disabled={!todo} className="button-3" onClick={add}>Add</button>
                     </div>
                 </div>
             </div>

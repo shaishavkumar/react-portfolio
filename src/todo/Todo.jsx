@@ -15,12 +15,12 @@ function Todo() {
             completedStatus: false
         }
         setTodos((prevVal) => [todoData, ...prevVal]);
-        toast.success('New todo added!');
+        // toast.success('New todo added!');
     }
 
     const deleteTodo = (id) => {
         setTodos((prevVal) => prevVal.filter(item => item.id !== id));
-        toast.success('Todo deleted successfully!');
+        // toast.success('Todo deleted successfully!');
     }
 
     const updateStatus = (id, status) => {
@@ -45,8 +45,9 @@ function Todo() {
                 }
             })
         })
-        toast.success('Todo updated successfully!');
+        // toast.success('Todo updated successfully!');
     }
+
     return (
         <TodoProvider value={{ todos, addTodo, deleteTodo, updateStatus, editTodo }}>
             <CreateForm />
